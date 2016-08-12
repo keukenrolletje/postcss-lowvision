@@ -11,7 +11,6 @@ function run(t, input, output) {
         });
 }
 
-// This test passed.
-test('reverse color value from dlog to gold', t => {
-    return run(t, 'a{ color: dlog }', 'a{ color: gold }');
+test('adds blur to html', t => {
+    return run(t, 'html {}', 'html {color: transparent; text-shadow:0 0 5px rgba(0,0,0,1);} ');
 });
