@@ -3,7 +3,7 @@ import test    from 'ava';
 
 import plugin from './';
 
-function run(t, input, output, opts = { }) {
+function run(t, input, output) {
     return postcss([ plugin(opts) ]).process(input)
         .then( result => {
             t.deepEqual(result.css, output);
