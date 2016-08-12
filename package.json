@@ -1,0 +1,34 @@
+{
+  "name": "postcss-lowvision",
+  "version": "0.0.0",
+  "description": "PostCSS plugin to simulate how your website will look for low vision users",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "low vision",
+    "disabilities",
+    "fontsize"
+  ],
+  "author": "Joke Gysen <jokegysen@gmail.com>",
+  "license": "MIT",
+  "repository": "keukenrolletje/postcss-lowvision",
+  "bugs": {
+    "url": "https://github.com/keukenrolletje/postcss-lowvision/issues"
+  },
+  "homepage": "https://github.com/keukenrolletje/postcss-lowvision",
+  "dependencies": {
+    "postcss": "^5.1.0"
+  },
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "eslint": "^3.1.1",
+    "eslint-config-postcss": "^2.0.2"
+  },
+  "scripts": {
+    "test": "ava && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5"
+  }
+}
