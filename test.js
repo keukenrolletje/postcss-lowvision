@@ -13,5 +13,5 @@ function run(t, input, output) {
 
 // This test passed.
 test('reverse color value from dlog to gold', t => {
-  return run(t, 'a{ color: dlog }', 'a{ color: gold }');
+    return run(t, 'a{ color: dlog }', 'a{ color: gold }');
 });
