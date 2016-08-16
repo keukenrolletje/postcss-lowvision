@@ -4,9 +4,13 @@ import test    from 'ava';
 import plugin from './';
 
 function run(t, input, output, opts) {
-    t.same(postcss([ plugin ]).process(input).css, output);
+    return postcss([ plugin(opts) ]).process(input)
+        .then( result => {
+            t.deepEqual(result.css, output);
+            t.deepEqual(result.warnings().length, 0);
+        });
 }
 
 test('adds blur to html', t => {
-    return run(t, 'html {}', 'html {color: transparent; text-shadow:0 0 5px rgba(0,0,0,1);} ');
+    return run(t, 'html {}', 'html { color: transparent; text-shadow: 0 0 5px rgba(0,0,0,1); } ');
 });
