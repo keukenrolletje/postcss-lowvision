@@ -12,5 +12,5 @@ function run(t, input, output) {
 }
 
 test('adds blur to html', t => {
-    return run(t, 'html {}', 'html {\n    color: transparent;\n    text-shadow: 0 0 5px rgba(0,0,0,1)} ');
+    return run(t, 'html {}', 'html {\n    color: transparent;\n    text-shadow: 0 0 5px rgba(0,0,0,1)}');
 });
