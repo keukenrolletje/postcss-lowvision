@@ -11,6 +11,6 @@ function run(t, input, output) {
         });
 }
 
-/*test('adds blur to html', t => {
+test('adds blur to html', t => {
     return run(t, 'html {}', 'html {color: transparent; text-shadow:0 0 5px rgba(0,0,0,1);} ');
-});*/
+});
