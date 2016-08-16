@@ -5,8 +5,10 @@ module.exports = postcss.plugin('postcss-lowvision', function (opts) {
 
     return function (css, result) {
       css.walkRules('html', function (decl, rule) {
-        decl.cloneBefore({ prop: 'color',  value: 'transparent' });
-        decl.cloneBefore({ prop: 'text-shadow',  value: '0 0 5px rgba(0,0,0,1)' });
+        if ( decl.selector !== -1 ){
+          decl.append({ prop: 'color',  value: 'transparent' });
+          decl.append({ prop: 'text-shadow',  value: '0 0 5px rgba(0,0,0,1)' });
+        }
       });
     }
 });
