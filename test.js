@@ -1,8 +1,6 @@
 import postcss from 'postcss';
 import test    from 'ava';
 
-//Add chia?
-
 import plugin from './';
 
 function run(t, input, output) {
