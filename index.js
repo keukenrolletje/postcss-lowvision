@@ -5,7 +5,7 @@ var postcss = require('postcss'),
 module.exports = postcss.plugin('postcss-lowvision', function () {
     return function (css) {
         css.walkDecls('color', function (decl) {
-            var val = decl.value
+            var val = decl.value;
             var rgb = color(val);
             rgb.rgb();
             decl.value = rgb;
