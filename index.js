@@ -21,8 +21,8 @@ module.exports = postcss.plugin('postcss-lowvision', function () {
                               value: '0 0 5px rgba(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2] + ', ' + '1)' });
         });
 
-        // Find all filter declarations
-        css.walkDecls('filter', function (decl) {
+        // Find all filter declarations using regex to allow prefixes
+        css.walkDecls(/filter*/, function (decl) {
             // Add blur filter to existing filters
             decl.value = 'blur(5px) ' + decl.value;
         });
