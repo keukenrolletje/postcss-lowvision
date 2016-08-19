@@ -20,3 +20,8 @@ test('adds blur to image', t => {
     run(t, 'img {}',
            'img { filter: blur(5px); }');
 });
+
+test('adds blur to filter', t => {
+    run(t, 'a { filter: contrast(1.5) }',
+           'a { filter: blur(5px) contrast(1.5); }');
+});
