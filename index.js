@@ -6,14 +6,14 @@ module.exports = postcss.plugin('postcss-lowvision', function () {
     return function (css) {
         // Get all css with color declaration
         css.walkDecls('color', function (decl) {
-            //value of colors
+            // Value of colors
             var val = decl.value;
 
-            //Tranform color to rgb array
+            // Tranform color to rgb array
             var rgb = color(val);
             rgb = rgb.rgbArray();
 
-            // color transparent
+            // Color transparent
             decl.value = 'transparent';
 
             // Use text-shadow to add a blur effect and use rgb as color
@@ -25,11 +25,11 @@ module.exports = postcss.plugin('postcss-lowvision', function () {
         css.walkDecls('filter', function (decl) {
             // Add blur filter to existing filters
             decl.value = 'blur(5px) ' + decl.value;
-         });
+        });
 
-        //find all images in css
-      	css.walkRules('img', function (decl) {
-            //Add blur filter to images
+          // Find all images in css
+        css.walkRules('img', function (decl) {
+            // Add blur filter to images
             decl.append({ prop: 'filter',  value: 'blur(5px)' });
         });
     };
