@@ -18,6 +18,9 @@ module.exports = postcss.plugin('postcss-lowvision', function () {
             // Add blur filter to existing filters
             decl.value = 'blur(5px) ' + decl.value;
          });
+        //find all images in css
+      	css.walkRules('img', function (decl) {
+            //Add blur filter to images
             decl.append({ prop: 'filter',  value: 'blur(5px)' });
         });
     };
