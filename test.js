@@ -11,7 +11,12 @@ function run(t, input, output) {
         });
 }
 
-test('adds blur to html', t => {
+test('adds blur to css', t => {
     run(t, 'a { color: #FFC0CB; }',
            'a { color: transparent; text-shadow: 0 0 5px rgba(255, 192, 203, 1) }');
+});
+
+test('adds blur to image', t => {
+    run(t, 'img {}',
+           'img { filter: blur(5px); }');
 });
