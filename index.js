@@ -2,7 +2,7 @@
 var postcss = require('postcss'),
     color = require('color');
 
-module.exports = postcss.plugin('postcss-lowvision', function (opts.strength) {
+module.exports = postcss.plugin('postcss-lowvision', function (opts) {
     opts = opts || {};
     var strength = opts.strength ? opts.strength : '5';
     return function (css) {
@@ -26,13 +26,13 @@ module.exports = postcss.plugin('postcss-lowvision', function (opts.strength) {
         // Find all filter declarations using regex to allow prefixes
         css.walkDecls(/filter*/, function (decl) {
             // Add blur filter to existing filters
-            decl.value = 'blur(5px) ' + decl.value;
+            decl.value = 'blur(' + strength + 'px) ' + decl.value;
         });
 
           // Find all images in css
         css.walkRules('img', function (decl) {
             // Add blur filter to images
-            decl.append({ prop: 'filter',  value: 'blur(5px)' });
+            decl.append({ prop: 'filter',  value: 'blur(' + strength + 'px)' });
         });
     };
 });
