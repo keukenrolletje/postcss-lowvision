@@ -15,7 +15,7 @@
 ```css
 .foo {
     color: transparent;
-    text-shadow: 0 0 5px rgba(255, 192, 203, 1)
+    text-shadow: 0 0 5px rgba(255, 192, 203, 1);
 }
 ```
 
