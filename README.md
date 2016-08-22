@@ -20,9 +20,9 @@
 ```
 
 ## Usage
-
+Add strength option between 0 and 15.
 ```js
-postcss([ require('postcss-lowvision') ])
+postcss([ require("postcss-lowvision")({strength:'2'}) ])
 ```
 
 See [PostCSS] docs for examples for your environment.
