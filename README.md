@@ -8,13 +8,18 @@
 
 ```css
 .foo {
-    /* Input example */
+    p {
+      color: #FFC0CB;
+    }
 }
 ```
 
 ```css
 .foo {
-  /* Output example */
+  a {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(255, 192, 203, 1)
+  }
 }
 ```
 
