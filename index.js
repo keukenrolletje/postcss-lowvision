@@ -4,7 +4,7 @@ var postcss = require('postcss'),
 
 module.exports = postcss.plugin('postcss-lowvision', function (opts) {
     opts = opts || {};
-    var strength = opts.strength || '5';
+    var strength = opts.strength ? opts.strength : '5';
     return function (css) {
         // Get all css with color declaration
         css.walkDecls('color', function (decl) {
