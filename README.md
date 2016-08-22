@@ -8,18 +8,14 @@
 
 ```css
 .foo {
-    p {
-      color: #FFC0CB;
-    }
+    color: #FFC0CB;
 }
 ```
 
 ```css
 .foo {
-  a {
     color: transparent;
     text-shadow: 0 0 5px rgba(255, 192, 203, 1)
-  }
 }
 ```
 
