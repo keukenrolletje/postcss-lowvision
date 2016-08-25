@@ -30,3 +30,8 @@ test('adds blur to filter with prefix', t => {
     run(t, 'a { -moz-filter: contrast(1.5) }',
            'a { -moz-filter: blur(5px) contrast(1.5); }');
 });
+
+test('adds blur to entire page', t => {
+    run(t, 'body { }',
+           'body { -webkit-filter: blur(5px); }');
+});
