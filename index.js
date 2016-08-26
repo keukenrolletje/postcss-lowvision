@@ -52,7 +52,7 @@ module.exports = postcss.plugin('postcss-lowvision', function (opts) {
         css.walkRules('body', function (decl) {
             // Add blur filter to body
             decl.append({ prop: 'filter',  value: 'blur(' + strength + 'px)' });
-            decl.append({ prop: 'filter',  value: 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' version=\'1.1\'><filter id=\'myfilter\' x=\'0\' y=\'0\'><feColorMatrix in=\'SourceGraphic\' type=\'hueRotate\' values=\'90\' result=\'A\'/><feGaussianBlur in=\'A\' stdDeviation=\'6\'/></filter></svg>#myfilter");' });
+            decl.append({ prop: 'filter',  value: 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' version=\'1.1\'><filter id=\'myfilter\'><feGaussianBlur in=\'SourceGraphic\' stdDeviation=\'5\'/></filter></svg>#myfilter");' });
             decl.append({ prop: '-webkit-filter',  value: 'blur(' + strength + 'px)' });
             decl.append({ prop: '-o-filter',  value: 'blur(' + strength + 'px)' });
             // Add overflow visible to prevent overflow hidden (makes the whole website invisible)
