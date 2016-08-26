@@ -35,9 +35,22 @@ module.exports = postcss.plugin('postcss-lowvision', function (opts) {
             decl.append({ prop: 'filter',  value: 'blur(' + strength + 'px)' });
         });
 
+        // List every selector
+        var selectors = [];
+        css.walkRules(function (rule) {
+            rule.selectors.forEach(function (selector) {
+                selectors.push(selector);
+            });
+        });
+
+        // Check of list of selector includes body, if it does not exist append body to css
+        if (!selectors.includes('body')) {
+            css.append({ selector: 'body' });
+        }
+
         // Find body
         css.walkRules('body', function (decl) {
-            // Add blur filter to images
+            // Add blur filter to body
             decl.append({ prop: 'filter',  value: 'blur(' + strength + 'px)' });
             decl.append({ prop: 'filter',  value: 'url("blur.svg#gaussian_blur")' });
             decl.append({ prop: '-webkit-filter',  value: 'blur(' + strength + 'px)' });
