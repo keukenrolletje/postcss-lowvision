@@ -51,12 +51,17 @@ module.exports = postcss.plugin('postcss-lowvision', function (opts) {
         // Find body
         css.walkRules('body', function (decl) {
             // Add blur filter to body
-            decl.append({ prop: '-moz-filter',  value: 'url("data:image/svg+xml;utf8,<svg style=\'position: absolute; top: -99999px\' xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'svgBlur\' x=\'-5%\' y=\'-5%\' width=\'110%\' height=\'110%\'><feGaussianBlur in=\'SourceGraphic\' stdDeviation=\'5\'/></filter></svg>#svgBlur");' });
+            decl.append({ prop: 'filter',  value: 'blur(' + strength + 'px)' });
             decl.append({ prop: '-webkit-filter',  value: 'blur(' + strength + 'px)' });
             decl.append({ prop: '-o-filter',  value: 'blur(' + strength + 'px)' });
-            decl.append({ prop: 'filter',  value: 'blur(' + strength + 'px)' });
+            decl.append({ prop: '-ms-filter',  value: 'blur(' + strength + 'px)' });
+            decl.append({ prop: 'filter',  value: 'url("data:image/svg+xml;utf8,<svg style=\'position: absolute; top: -99999px\' xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'svgBlur\' x=\'-5%\' y=\'-5%\' width=\'110%\' height=\'110%\'><feGaussianBlur in=\'SourceGraphic\' stdDeviation=\'5\'/></filter></svg>#svgBlur");' });
+            decl.append({ prop: 'filter',  value: 'progid:DXImageTransform.Microsoft.Blur(PixelRadius="' + strength + '")' });
+
             // Add overflow visible to prevent overflow hidden (makes the whole website invisible)
             decl.append({ prop: 'overflow',  value: 'visible' });
+            // With position relative the page disappears
+            decl.append({ prop: 'position',  value: 'absolute' });
         });
     };
 });
