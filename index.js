@@ -55,6 +55,8 @@ module.exports = postcss.plugin('postcss-lowvision', function (opts) {
             decl.append({ prop: 'filter',  value: 'url("blur.svg#gaussian_blur")' });
             decl.append({ prop: '-webkit-filter',  value: 'blur(' + strength + 'px)' });
             decl.append({ prop: '-o-filter',  value: 'blur(' + strength + 'px)' });
+            // Add overflow visible to prevent overflow hidden (makes the whole website invisible)
+            decl.append({ prop: 'overflow',  value: 'visible' });
         });
     };
 });
